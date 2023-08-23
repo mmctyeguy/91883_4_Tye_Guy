@@ -23,6 +23,7 @@ def calc():
 
 def quiz():
     score = 0
+    answer = calc()
     for item in range(10):
         correct = askquestion()
         if correct:
