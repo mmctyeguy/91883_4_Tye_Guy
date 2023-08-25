@@ -21,18 +21,17 @@ def calc():
            '-': operator.sub,
            '*': operator.mul,
            '/': operator.truediv, }
-    operation = random.choice(ops)
     num1 = random.randint(1, 12)
     num2 = random.randint(0, 12)
     op = random.choice(list(ops.keys()))
     print('What is {} {} {}?\n'.format(num1, op, num2))
-    q = int(input(str(num1) + operation + str(num2)))
+    q = float(input(str(num1) + op + str(num2)))
     answer = ops.get(op)(num1, num2)
 
     if q == answer:
         print("Correct")
         score = score + 1
-        print(score)
+        print("Your current score is: {}".format(score))
     else:
         print("Incorrect")
         print(answer)
@@ -40,5 +39,5 @@ def calc():
 
 
 quiz()
-calc()
 askquestion()
+print("Next Question?")
