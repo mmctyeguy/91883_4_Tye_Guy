@@ -9,12 +9,6 @@ def quiz():
     print("Begin Quiz")
 
 
-def askquestion():
-    answer = calc()
-    guess = float(input())
-    return guess == answer
-
-
 def calc():
     score = 0
     ops = {'+': operator.add,
@@ -39,5 +33,4 @@ def calc():
 
 
 quiz()
-askquestion()
-print("Next Question?")
+calc()
