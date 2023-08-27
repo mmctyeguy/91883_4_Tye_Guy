@@ -110,4 +110,5 @@ def new_question():
         print("Thank you for playing")
 
 
-new_question()
+while True:
+    new_question()
