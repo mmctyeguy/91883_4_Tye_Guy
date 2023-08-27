@@ -13,13 +13,18 @@ def calc():
     score = 0
     ops = {'+': operator.add,
            '-': operator.sub,
-           '*': operator.mul,
-           '/': operator.truediv, }
+           '*': operator.mul, }
     num1 = random.randint(1, 12)
     num2 = random.randint(0, 12)
     op = random.choice(list(ops.keys()))
     print('What is {} {} {}?\n'.format(num1, op, num2))
-    q = str(input(int(num1) + op + int(num2)))
+
+    try:
+        q = int(input())
+    except ValueError:
+        print("Invalid input. Please enter a number next time.")
+        return
+
     answer = ops.get(op)(num1, num2)
 
     if q == answer:
@@ -52,7 +57,10 @@ def yes_no(question):
 def instructions():
     print("How To Play")
     print()
-    print("Rules placeholder blah blah")
+    print("The quiz will ask you to enter an amount to bet between 1 and 10.")
+    print("If you get the question afterwards right, your bet will be added to your score.")
+    print("However, if you get it wrong, it will be removed off of your score.")
+    print("You may exit the quiz at any time between questions. Good luck")
     print()
     return ""
 
@@ -76,27 +84,30 @@ def num_check(question, low, high):
 
 
 # main
-print("Welcome to generic quiz game")
+print("Welcome to Quiz!")
 quiz()
 
 played_before = yes_no("Have you played before?").lower()
 if played_before == "no":
     print(instructions())
     # print instructions if user hasn't played before, otherwise continue program
+bet = num_check("How much would you like to bet?", 0, 10)
+print("You will be betting ${}.".format(bet))
 
-how_much = num_check("How much would you like to bet?", 0, 10)
-print("You will be betting ${}.".format(how_much))
-bet = how_much
 
-calc()
-
-next_question = yes_no("Continue to next question?").lower()
-
-if next_question == "yes":
-    print("Next Question")
-    how_much = num_check("How much would you like to bet?", 0, 10)
-    print("You will be betting ${}.".format(how_much))
+def new_question():
     calc()
 
-elif next_question == "no":
-    print("Thank you for playing")
+    next_question = yes_no("Next question?").lower()
+
+    if next_question == "yes":
+        print("Next Question")
+        bet = num_check("How much would you like to bet?", 0, 10)
+        print("You will be betting ${}.".format(bet))
+        calc()
+
+    elif next_question == "no":
+        print("Thank you for playing")
+
+
+new_question()
