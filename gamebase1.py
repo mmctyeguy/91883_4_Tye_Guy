@@ -19,7 +19,7 @@ def calc():
     num2 = random.randint(0, 12)
     op = random.choice(list(ops.keys()))
     print('What is {} {} {}?\n'.format(num1, op, num2))
-    q = float(input(str(num1) + op + str(num2)))
+    q = str(input(int(num1) + op + int(num2)))
     answer = ops.get(op)(num1, num2)
 
     if q == answer:
