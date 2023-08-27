@@ -95,20 +95,13 @@ bet = num_check("How much would you like to bet?", 0, 10)
 print("You will be betting ${}.".format(bet))
 
 
-def new_question():
+while True:
     calc()
 
     next_question = yes_no("Next question?").lower()
 
     if next_question == "yes":
-        print("Next Question")
-        bet = num_check("How much would you like to bet?", 0, 10)
-        print("You will be betting ${}.".format(bet))
-        calc()
-
+        continue
     elif next_question == "no":
         print("Thank you for playing")
-
-
-while True:
-    new_question()
+        break
