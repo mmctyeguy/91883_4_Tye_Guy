@@ -43,6 +43,7 @@ def calc():
         print("Incorrect")
         score -= bet
         print(answer)
+        print("Your current score is: {}".format(score))
     return answer
 # if the answer the user inputs is correct, their bet is added to their score
 # otherwise, it is removed from their score.
