@@ -1,6 +1,8 @@
 import operator
 import random
 
+score = 0
+
 
 def quiz():
     lastname = input("Please enter your surname:").title()
@@ -11,7 +13,6 @@ def quiz():
 
 
 def calc():
-    score = 0
     ops = {'+': operator.add,
            '-': operator.sub,
            '*': operator.mul, }
@@ -33,6 +34,7 @@ def calc():
 
     answer = ops.get(op)(num1, num2)
 
+    global score
     if q == answer:
         print("Correct")
         score += bet
@@ -118,6 +120,6 @@ while True:
         continue
         # if they answer yes, they continue and are asked to bet again
     elif next_question == "no":
-        print("Thank you for playing {} {}")
+        print("Thank you for playing")
         break
     # if they say no, the game ends
