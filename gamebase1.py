@@ -29,10 +29,11 @@ def calc():
 
     if q == answer:
         print("Correct")
-        score = score + bet
+        score += bet
         print("Your current score is: {}".format(score))
     else:
         print("Incorrect")
+        score -= bet
         print(answer)
     return answer
 
@@ -101,6 +102,8 @@ while True:
     next_question = yes_no("Next question?").lower()
 
     if next_question == "yes":
+        bet = num_check("How much would you like to bet?", 0, 10)
+        print("You will be betting ${}.".format(bet))
         continue
     elif next_question == "no":
         print("Thank you for playing")
