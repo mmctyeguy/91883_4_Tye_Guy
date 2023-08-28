@@ -28,9 +28,11 @@ def calc():
         q = int(input())
     except ValueError:
         print("Invalid input. Please enter a number next time.")
+        score -= bet
+        print("Your current score is: {}".format(score))
         return
     # if user inputs something other than a number e.g. a letter/symbol an error message is shown
-    # also skips the question
+    # also skips the question and removes bet from balance
 
     answer = ops.get(op)(num1, num2)
 
@@ -71,7 +73,7 @@ def instructions():
     print()
     print("The quiz will ask you to enter an amount to bet between 1 and 10.")
     print("If you get the question afterwards right, your bet will be added to your score.")
-    print("However, if you get it wrong, it will be removed off of your score.")
+    print("However, if you get it wrong or enter an invalid input like a letter, it will be removed off of your score.")
     print("You may exit the quiz at any time between questions. Good luck")
     print()
     return ""
