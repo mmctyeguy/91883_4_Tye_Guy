@@ -24,6 +24,9 @@ def calc():
     # declares ops as the mathematical operations and the numbers in the equation are selected randomly from 1-12
     # then selects a random operation and puts it into the formula for the questions
 
+    answer = ops.get(op)(num1, num2)
+
+    global score
     try:
         q = int(input())
     except ValueError:
@@ -34,9 +37,6 @@ def calc():
     # if user inputs something other than a number e.g. a letter/symbol an error message is shown
     # also skips the question and removes bet from balance
 
-    answer = ops.get(op)(num1, num2)
-
-    global score
     if q == answer:
         print("Correct")
         score += bet
