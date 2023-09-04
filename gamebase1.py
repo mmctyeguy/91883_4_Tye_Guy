@@ -72,7 +72,7 @@ def instructions():
     print("How To Play")
     print()
     print("The quiz will ask you to enter an amount to bet between 1 and 10.")
-    print("If you get the question afterwards right, your bet will be added to your score.")
+    print("If you get the simple maths question afterwards right, your bet will be added to your score.")
     print("However, if you get it wrong or enter an invalid input like a letter, it will be removed off of your score.")
     print("You may exit the quiz at any time between questions. Good luck")
     print()
@@ -100,7 +100,7 @@ def num_check(question, low, high):
 
 
 # main
-print("Welcome to Quiz!")
+print("Welcome to Maths Quiz!")
 quiz()
 # calls the quiz function to have the user input their name
 played_before = yes_no("Have you played before?").lower()
