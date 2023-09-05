@@ -1,8 +1,6 @@
 import operator
 import random
 
-score = 0
-
 
 def quiz():
     lastname = input("Please enter your surname:").title()
@@ -98,6 +96,8 @@ def num_check(question, low, high):
             print(error)
             # otherwise, an error is printed
 
+
+score = 0
 
 # main
 print("Welcome to Maths Quiz!")
